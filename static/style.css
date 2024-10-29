@@ -1,0 +1,63 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('https://cdn.pixabay.com/photo/2015/06/24/16/36/race-820649_960_720.jpg'); /* Racing background */
+    background-size: cover;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.controller-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    grid-gap: 20px;
+}
+
+.control-button {
+    padding: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #1d1d1d;
+    color: white;
+    border: 3px solid #007bff;
+    border-radius: 50%;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.control-button svg {
+    fill: white;
+}
+
+.control-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.control-button:active {
+    transform: scale(0.95);
+}
+
+.racing-flag {
+    margin-top: 30px;
+}
+
+.racing-flag img {
+    width: 100px;
+    height: auto;
+}

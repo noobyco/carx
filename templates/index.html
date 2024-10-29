@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Buttons</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🚗 CARX 🏁</h1>
+        <div class="controller-grid">
+            <!-- Empty div for layout spacing -->
+            <div></div>
+            <!-- Front Button -->
+            <button id="frontBtn" class="control-button" onmousedown="startPosting('f-start')" onmouseup="stopPosting('f-stop')">
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L3 21H21L12 2Z" fill="white"/>
+                </svg>
+            </button>
+            <!-- Empty div for layout spacing -->
+            <div></div>
+
+            <!-- Left Button -->
+            <button id="leftBtn" class="control-button" onmousedown="startPosting('l-start')" onmouseup="stopPosting('l-stop')">
+                
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 12L21 3V21L2 12Z" fill="white"/>
+                </svg>
+            </button>
+
+            <!-- Empty div for layout spacing -->
+            <div></div>
+
+            <!-- Right Button -->
+            <button id="rightBtn" class="control-button" onmousedown="startPosting('r-start')" onmouseup="stopPosting('r-stop')">
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 12L3 21V3L22 12Z" fill="white"/>
+                </svg>
+            </button>
+
+            <!-- Empty div for layout spacing -->
+            <div></div>
+
+            <!-- Back Button -->
+            <button id="backBtn" class="control-button" onmousedown="startPosting('b-start')" onmouseup="stopPosting('b-stop')">
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22L3 3H21L12 22Z" fill="white"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function startPosting(signal) {
+            fetch('/post', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ signal: signal })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+
+        function stopPosting(signal) {
+            fetch('/post', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ signal: signal })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
